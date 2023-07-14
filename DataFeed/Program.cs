@@ -64,18 +64,22 @@ namespace Geotab.SDK.DataFeed
                                 Worker worker = new DatabaseWorker(user, password, database, server, gpsToken, statusToken, faultToken, tripToken, exceptionToken, path);
                                 var cancellationToken = new CancellationTokenSource();
                                 // This task should run async
-                                Task task = Task.Run(async () => await worker.DoWorkAsync(continuous), cancellationToken.Token);
+                                
+                    
+                                Task[] tasks = new Task[1];
+                                tasks[0] = Task.Run(async () => await worker.DoWorkAsync(continuous));
+
+                                Task.WaitAll(tasks);
+
+                                // Task task = Task.Run(async () => await worker.DoWorkAsync(continuous), cancellationToken.Token);
+                                //await task;
                                 // console.readline checks if there are incoming values. 
-                                // if (continuous && Console.ReadLine() != null)
-                                // {
-                                //     worker.RequestStop();
-                                //     cancellationToken.Cancel();
-                                // }
-                                if (continuous)
+                                if (continuous && Console.ReadLine() != null)
                                 {
                                     worker.RequestStop();
                                     cancellationToken.Cancel();
                                 }
+                        
                                 Console.WriteLine();
                                 Console.WriteLine("******************************************************");
                                 Console.WriteLine("Finished receiving data from " + server + (federation ? "" : "/" + database));
@@ -94,11 +98,11 @@ namespace Geotab.SDK.DataFeed
             Console.WriteLine("--d  The Database");
             Console.WriteLine("--u  The User");
             Console.WriteLine("--p  The Password");
-            Console.WriteLine("--gt The last known gps data token");
-            Console.WriteLine("--st The last known status data token");
-            Console.WriteLine("--ft The last known fault data token");
-            Console.WriteLine("--tt The last known trip token");
-            Console.WriteLine("--et The last known exception token");
+            Console.WriteLine("--gt The last known gps data Version");
+            Console.WriteLine("--st The last known status data Version");
+            Console.WriteLine("--ft The last known fault data Version");
+            Console.WriteLine("--tt The last known trip Version");
+            Console.WriteLine("--et The last known exception Version");
             Console.WriteLine("--f  The folder to save any output files to, if applicable. Defaults to the current directory.");
             Console.WriteLine("--c  Run the feed continuously.");
             Console.ReadLine();

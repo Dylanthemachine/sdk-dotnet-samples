@@ -30,7 +30,10 @@ namespace Geotab.SDK.DataFeed
             // new FeedToConsole(results.GpsRecords, results.StatusData, results.FaultData).Run();
             // Optionally we can output to csv or google doc:
             new FeedToCsv(path, results.GpsRecords, results.StatusData, results.FaultData, results.Trips, results.ExceptionEvents).Run();
-
+            // confirmed this FeedToConsole works. 
+            new FeedToConsole(results.GpsRecords,results.StatusData,results.FaultData).Run();
+            
+            
             // new FeedToBigquery(path).Run();
             await Task.Delay(1000);
         }
