@@ -46,7 +46,7 @@ The application will bring up the following console:
 Example usage:
 
 ```shell
-> dotnet run --s "my.geotab.com" --d "database" --u "user@email.com" --p "password" --c
+> dotnet run --s "my.geotab.com" --d "database" --u "user@email.com" --p "password" --gt 0000000000000000 --st 0000000000000000
 ```
 
 The options above are the inputs that the feed example can take. A server, database, user and password must be supplied in order for the feed to run. Optionally a gps data token, status data token, fault data token, trip token and/or exception token can be provided to start the feed at a particular token version ("nnn" should be replaced with the known token). Finally the feed can be instructed to run continuously or only one time.

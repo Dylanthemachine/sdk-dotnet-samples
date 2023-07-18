@@ -33,6 +33,7 @@ namespace Geotab.SDK.DataFeed
             // confirmed this FeedToConsole works. 
             new FeedToConsole(results.GpsRecords,results.StatusData,results.FaultData).Run();
             
+            new FeedToBigquery(path).Run();
             
             // new FeedToBigquery(path).Run();
             await Task.Delay(1000);
