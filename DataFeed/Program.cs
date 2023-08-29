@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Thread = System.Threading.Thread;
+//using Thread = System.Threading.Thread;
 
 namespace Geotab.SDK.DataFeed
 {
@@ -71,9 +71,6 @@ namespace Geotab.SDK.DataFeed
 
                                 Task.WaitAll(tasks);
 
-                                // Task task = Task.Run(async () => await worker.DoWorkAsync(continuous), cancellationToken.Token);
-                                //await task;
-                                // console.readline checks if there are incoming values. 
                                 if (continuous && Console.ReadLine() != null)
                                 {
                                     worker.RequestStop();
