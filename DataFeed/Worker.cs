@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System;
 using Thread = System.Threading.Thread;
 
 namespace Geotab.SDK.DataFeed
@@ -17,7 +18,8 @@ namespace Geotab.SDK.DataFeed
         /// <param name="path">The path.</param>
         internal Worker(string path)
         {
-            this.path = path;
+            //this.path = path;
+            this.path = Environment.CurrentDirectory;
         }
 
         /// <summary>
