@@ -18,8 +18,9 @@ namespace Geotab.SDK.DataFeed
         /// <param name="path">The path.</param>
         internal Worker(string path)
         {
-            //this.path = path;
-            this.path = Environment.CurrentDirectory;
+            
+            this.path = path;
+            
         }
 
         /// <summary>
