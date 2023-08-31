@@ -52,9 +52,9 @@ Example usage:
 
 The options above are the inputs that the feed example can take. A server, database, user and password must be supplied in order for the feed to run. Optionally a gps data version, status data version, fault data version, trip version and/or exception version can be provided to start the feed at a particular version ("nnn" should be replaced with the known version). Finally the feed can be instructed to run continuously or only one time.
 
-By default the feed will output its results to a CSV file in the location specified by the -f flag above. If no location is provided the CSV file will be placed in the same directory that DataFeed.dll is located.
+By default the feed will output its results to a CSV file in the location specified by the --f flag above. If no location is provided the CSV file will be placed in the same directory that DataFeed.cs is located.
 
-The feed example contains numerous other examples of what can be done with the feed output, for example writing the data to the console or automatically uploading it to Google BigQuery. Developers are encouraged to take a look at the examples in order to understand how the options available to them and how to best to integrate the feed data into their existing systems.
+The feed example contains numerous other examples of what can be done with the feed output, for example writing the data to the console. Developers are encouraged to take a look at the examples in order to understand how the options available to them and how to best to integrate the feed data into their existing systems.
 
 ## Feed output
 
